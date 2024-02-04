@@ -47,7 +47,8 @@
 
 <div class="container">
     <h2>Contact Us</h2>
-    <form action="/submit_contact_form" method="post"> <!-- Replace with your server-side script -->
+    <form action="" method="post"> <!-- Replace with your server-side script -->
+        {% csrf_token %}
         <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
