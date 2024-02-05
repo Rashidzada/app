@@ -25,3 +25,14 @@ def contact(request):
         pass
 
     return render(request, 'contact.html')
+
+def about(request):
+    if request.method == 'POST':
+        image = request.POST.get('image')
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+
+        return render(request, 'about.html', {'about': {'image': image, 'title': title, 'description': description}})
+
+    # Add a return statement for the 'GET' request
+    return render(request, 'about.html')

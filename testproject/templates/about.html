@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% csrf_token %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
@@ -83,24 +84,14 @@
     </nav>
 
     <div class="container">
+        {% for about in about %}
         <div class="content-section">
-            <img src="path/to/your/image1.jpg" alt="About Image 1">
+            <img src="{{ about.image.url }}" alt="{{ about.title }}">
             <div class="text-section">
-                <h2>Description Title</h2>
-                <p>
-                    This is a description of your organization or project. You can provide relevant information about your goals, mission, achievements, etc.
-                </p>
+                <div> {{ about.title }}</div>
+                <div> {{ about.description}}</div>
             </div>
-        </div>
-
-        <div class="content-section">
-            <div class="text-section">
-                <h2>Title </h2>
-                <p>
-                    This is a description of your organization or project. You can provide relevant information about your goals, mission, achievements, etc.
-                </p>
-            </div>
-            <img src="path/to/your/image2.jpg" alt="About Image 2">
+         {% endfor %}   
         </div>
     </div>
 </body>
